@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 18th Birthday 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Sacramento&family=Homemade+Apple&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Playfair Display', serif;
+  background:#f4ecd8;
+  background-image:
+    radial-gradient(#e2d6b8 1px, transparent 0),
+    radial-gradient(#e2d6b8 1px, transparent 0);
+  background-size:40px 40px;
+  background-position:0 0, 20px 20px;
+  color:#3a2f2f;
+  overflow:hidden;
+  height: 100vh;
+}
+
+/* ✉️ ENVELOPE */
+#envelope{
+  position:fixed;
+  inset:0;
+  background:#efe2cf;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+  transition: opacity 0.5s ease;
+}
+.env-card{
+  background:#fffaf3;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.25);
+  font-family:'Homemade Apple', cursive;
+  text-align:center;
+  cursor:pointer;
+  border: 2px dashed #d8bfa4;
+}
+
+/* SLIDES */
+.slide{
+  display:none;
+  height:100vh;
+  width:100vw;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide.active{
+  display:flex;
+  animation:pageTurn 0.8s ease forwards;
+}
+
+@keyframes pageTurn{
+  from{transform: scale(0.9) rotateY(10deg); opacity:0;}
+  to{transform: scale(1) rotateY(0); opacity:1;}
+}
+
+/* CARD */
+.card{
+  position:relative;
+  background:#fffaf3;
+  padding:30px;
+  border-radius:18px;
+  max-width:85%;
+  width: 400px;
+  border:1px solid rgba(120,90,60,0.3);
+  box-shadow:0 15px 25px rgba(120,90,60,0.35);
+  z-index: 10;
+}
+
+/* COFFEE STAIN (Optional Overlay) */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: url('https://www.transparenttextures.com/patterns/paper.png'); /* Texture for vintage feel */
+  opacity:0.4;
+  pointer-events:none;
+}
+
+h1, h2 { font-family:'Homemade Apple', cursive; margin-bottom: 10px; }
+p { font-size:16px; line-height:1.7; }
+
+/* LETTER */
+.letter{
+  font-family:'Sacramento', cursive;
+  font-size:22px;
+  white-space: pre-wrap;
+  text-align: left;
+  min-height: 200px;
+}
+
+button{
+  margin-top:20px;
+  padding:12px 28px;
+  border:none;
+  background:#d8bfa4;
+  color:#3a2f2f;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+button:hover { transform: scale(1.05); }
+
+img{
+  max-width:100%;
+  max-height: 250px;
+  border-radius:14px;
+  margin-bottom:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+</style>
+</head>
+
+<body>
+
+<div id="envelope">
+  <div class="env-card" onclick="openEnvelope()">
+    <h2>For my little one 🤍</h2>
+    <p>(tap to open)</p>
+  </div>
+</div>
+
+<div class="slide" id="slide-0">
+  <div class="card">
+    <h1>Happy 18th Birthday 🫶✨</h1>
+    <p>To my forever little kiddohhhh 🎀</p>
+    <button onclick="next()">Begin ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <img src="pic1.jpeg" alt="[Image 1]">
+    <p>You come before me 🤍<br>And if anyone ever makes you feel less worthy,<br>remember you have me — I’ll handle the rest 😌</p>
+    <button onclick="next()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <img src="pic2.jpeg" alt="[Image 2]">
+    <p>You’ve grown up so fast 🥺<br>but for me, you’ll always be that choti si version.<br>The one who used to fight with me A LOTTTT 😤</p>
+    <button onclick="next()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <img src="pic3.jpeg" alt="[Image 3]">
+    <p>You are a DIVA ✨<br>Never forget your worth. Build a life that feels like yours.<br>Please don’t fall apart in my absence — I’m always with you 🤍</p>
+    <button onclick="next()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <h2>A Letter For You 🤍</h2>
+    <div id="letter" class="letter"></div>
+    <button onclick="next()">Continue ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <img src="pic4.jpeg" alt="[Image 4]">
+    <p>Still my little vedu — stubborn head, "chal kuch karte hain" energy... Never let that kid inside you die. 🤭</p>
+    <button onclick="next()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <img src="pic5.jpeg" alt="[Image 5]">
+    <h2>Some bonds never melt 💗✨</h2>
+    <p>I will always have your back 🥹</p>
+  </div>
+</div>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let currentIndex = 0;
+let isTyping = false;
+
+function openEnvelope() {
+  document.getElementById("envelope").style.opacity = "0";
+  setTimeout(() => {
+    document.getElementById("envelope").style.display = "none";
+    slides[0].classList.add("active");
+  }, 500);
+}
+
+function next() {
+  if (currentIndex < slides.length - 1) {
+    slides[currentIndex].classList.remove("active");
+    currentIndex++;
+    slides[currentIndex].classList.add("active");
+    
+    // If it's the letter slide (index 4)
+    if (currentIndex === 4 && !isTyping) {
+      typeLetter();
+    }
+  }
+}
+
+const letterText = `My little one,
+
+I am so proud of you for how far you’ve come. Watching you grow into who you are today has been one of the quiet joys of my life.
+
+You turned 18 today, and I am manifesting the best life — the right people, success, and the purest form of love for you.
+
+I love you beyond the stars. You matter to me. And no matter what, I will always have your back.
+
+Love,
+Your gunnu 🤍`;
+
+function typeLetter() {
+  isTyping = true;
+  let el = document.getElementById("letter");
+  el.innerHTML = "";
+  let i = 0;
+  let timer = setInterval(() => {
+    el.innerHTML += letterText[i];
+    i++;
+    if (i >= letterText.length) {
+      clearInterval(timer);
+    }
+  }, 40);
+}
+</script>
+
+</body>
+</html>
