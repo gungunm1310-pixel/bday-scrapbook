@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 18th Birthday 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Sacramento&family=Homemade+Apple&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Playfair Display',serif;
+  background:#f4ecd8;
+  background-image:
+    radial-gradient(#e2d6b8 1px, transparent 0),
+    radial-gradient(#e2d6b8 1px, transparent 0);
+  background-size:40px 40px;
+  background-position:0 0, 20px 20px;
+  color:#3a2f2f;
+  overflow:hidden;
+}
+
+/* ✉️ ENVELOPE */
+#envelope{
+  position:fixed;
+  inset:0;
+  background:#efe2cf;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+.env-card{
+  background:#fffaf3;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.25);
+  font-family:'Homemade Apple',cursive;
+  text-align:center;
+  cursor:pointer;
+}
+
+/* SLIDES */
+.slide{
+  display:none;
+  height:100vh;
+  width:100vw;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  animation:pageTurn 0.8s ease;
+}
+.slide.active{display:flex;}
+
+@keyframes pageTurn{
+  from{transform:rotateY(12deg);opacity:0;}
+  to{transform:rotateY(0);opacity:1;}
+}
+
+/* CARD */
+.card{
+  position:relative;
+  background:#fffaf3;
+  padding:30px;
+  border-radius:18px;
+  max-width:85%;
+  border:1px solid rgba(120,90,60,0.3);
+  box-shadow:0 15px 25px rgba(120,90,60,0.35);
+}
+
+/* ☕ COFFEE STAIN */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("pics/coffee.png") center/contain no-repeat;
+  opacity:0.22;
+  pointer-events:none;
+}
+
+/* TEXT */
+h1,h2{
+  font-family:'Homemade Apple',cursive;
+}
+p{
+  font-size:16px;
+  line-height:1.7;
+}
+
+/* LETTER */
+.letter{
+  font-family:'Sacramento',cursive;
+  font-size:24px;
+  white-space:pre-line;
+}
+
+/* BUTTON */
+button{
+  margin-top:20px;
+  padding:10px 26px;
+  border:none;
+  background:#d8bfa4;
+  color:#3a2f2f;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+/* IMAGES */
+img{
+  max-width:80%;
+  border-radius:14px;
+  margin-bottom:12px;
+  box-shadow:0 0 20px rgba(120,90,60,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ✉️ ENVELOPE -->
+<div id="envelope">
+  <div class="env-card">
+    <h2>For my little one 🤍</h2>
+    <p>(tap to open)</p>
+  </div>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+  <div class="card">
+    <h1>Happy 18th Birthday 🫶✨</h1>
+    <p>To my forever little kiddohhhh 🎀</p>
+    <button onclick="next()">Begin ➜</button>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="card">
+    <img src="pics/pic1.jpg">
+    <p>
+You come before me 🤍  
+And if anyone ever makes you feel less worthy,  
+remember you have me —  
+I’ll handle the rest 😌
+    </p>
+    <button onclick="next()">Next ➜</button>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="card">
+    <img src="pics/pic2.jpg">
+    <p>
+You’ve grown up so fast 🥺  
+but for me, you’ll always be that choti si version.  
+Not to mention —  
+the one who used to fight with me A LOTTTT 😤
+    </p>
+    <button onclick="next()">Next ➜</button>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+  <div class="card">
+    <img src="pics/pic3.jpg">
+    <p>
+You are a DIVA ✨  
+Never forget your worth or lose yourself.  
+
+This is the age where you’ll discover who you truly are  
+and build a life that feels like yours.  
+
+Please don’t fall apart in my absence —  
+I’m always with you 🤍
+    </p>
+    <button onclick="next()">Next ➜</button>
+  </div>
+</div>
+
+<!-- LETTER -->
+<div class="slide">
+  <div class="card">
+    <h2>A Letter For You 🤍</h2>
+    <p id="letter" class="letter"></p>
+    <button onclick="next()">Continue ➜</button>
+  </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+  <div class="card">
+    <img src="pics/pic4.jpg">
+    <p>
+Not kidding, but I still see you as that little vedu —  
+stubborn head, “chal kuch karte hain” energy,  
+from cockroach ki antim yatra  
+to tulsi gira dene wali 🤭  
+
+Never let that kid inside you die.  
+Just be mindful of who deserves that side of you.
+    </p>
+    <button onclick="next()">Next ➜</button>
+  </div>
+</div>
+
+<!-- FINAL -->
+<div class="slide">
+  <div class="card">
+    <img src="pics/pic5.jpg">
+    <h2>Some bonds never melt 💗✨</h2>
+    <p>I will always have your back 🥹</p>
+  </div>
+</div>
+
+<script>
+let slides=document.querySelectorAll(".slide");
+let index=0;
+
+function next(){
+  slides[index].classList.remove("active");
+  index++;
+  if(index<slides.length){
+    slides[index].classList.add("active");
+    if(index===4) typeLetter();
+  }
+}
+
+const letterText =
+`My little one,
+
+I am so proud of you for how far you’ve come.
+Watching you grow into who you are today
+has been one of the quiet joys of my life.
+
+You turned 18 today,
+and I am manifesting the best life —
+the right people,
+success,
+and the purest form of love for you.
+
+I love you beyond the stars.
+You matter to me.
+And no matter what,
+I will always have your back.
+
+Love,
+Your gunnu 🤍`;
+
+function typeLetter(){
+  let el=document.getElementById("letter");
+  el.innerHTML="";
+  let i=0;
+  let timer=setInterval(()=>{
+    el.innerHTML+=letterText[i];
+    i++;
+    if(i>=letterText.length) clearInterval(timer);
+  },40);
+}
+
+/* ENVELOPE OPEN */
+document.querySelector(".env-card").onclick=()=>{
+  document.getElementById("envelope").style.display="none";
+};
+</script>
+
+</body>
+</html>
